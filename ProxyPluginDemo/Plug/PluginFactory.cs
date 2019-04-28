@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -28,6 +29,8 @@ namespace ProxyPluginDemo.Plug
             lock (PluginMenmberTable.SyncRoot)
             {
                 PluginMenmberTable.Clear();
+                var st = new Stopwatch();
+                st.Start();
 
                 foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies().Where(q => q.GetCustomAttribute<PluginAssemblyAttribute>() != null))
                 {
@@ -57,6 +60,9 @@ namespace ProxyPluginDemo.Plug
                         PluginMenmberTable.Add(member.FromType,member);
                     }
                 }
+
+                st.Stop();
+                Console.WriteLine("耗时" + st.Elapsed.Milliseconds);
             }
         }
 

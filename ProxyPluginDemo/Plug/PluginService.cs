@@ -14,7 +14,7 @@ namespace ProxyPluginDemo.Plug
     public class PluginService<T> where T :class ,new ()
     {
         private T _instance;
-        public T Instance { get; }
+        public T Instance => GetInstance();
 
         /// <summary>
         /// 获取实例

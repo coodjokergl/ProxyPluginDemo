@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProxyPluginDemo.Plug.Attrubute
 {
-    [AttributeUsage(AttributeTargets.Method,Inherited = true)]
+    [AttributeUsage(AttributeTargets.Class,Inherited = true)]
     public class PluginClassAttribute:Attribute
     {
         public Type FromType { get; }

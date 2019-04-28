@@ -10,7 +10,7 @@ namespace ProxyPluginDemo.Plug
     /// <summary>
     /// 插件拦截器
     /// </summary>
-    internal class PluginInterceptor:IInterceptor  
+    public class PluginInterceptor:IInterceptor  
     {
         /// <summary>
         /// 

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DE24FDDB-ABD2-4A53-BED0-B9194E637E92}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>ProxyPluginDemo</RootNamespace>
-    <AssemblyName>ProxyPluginDemo</AssemblyName>
+    <ProjectGuid>{43DDAB81-983B-4067-BDAC-040346DF172E}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>StartUp</RootNamespace>
+    <AssemblyName>StartUp</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -32,15 +32,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Castle.Core.4.4.0\lib\net45\Castle.Core.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -50,18 +43,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Plug\Attrubute\PluginAssemblyAttribute.cs" />
-    <Compile Include="Plug\Attrubute\PluginClassAttribute.cs" />
-    <Compile Include="Plug\Attrubute\PluginMethodAttribute.cs" />
-    <Compile Include="Plug\PluginFactory.cs" />
-    <Compile Include="Plug\PluginInterceptor.cs" />
-    <Compile Include="Plug\PluginService.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Plugin\Plugin.csproj">
+      <Project>{9a2a40eb-954d-4900-ac28-8500cda3578d}</Project>
+      <Name>Plugin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Product\Product.csproj">
+      <Project>{782F33EB-741C-48EE-B6D1-521012A40165}</Project>
+      <Name>Product</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProxyPluginDemo\ProxyPluginDemo.csproj">
+      <Project>{DE24FDDB-ABD2-4A53-BED0-B9194E637E92}</Project>
+      <Name>ProxyPluginDemo</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
