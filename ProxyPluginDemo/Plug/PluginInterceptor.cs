@@ -10,14 +10,17 @@ namespace ProxyPluginDemo.Plug
     /// <summary>
     /// 插件拦截器
     /// </summary>
-    public class PluginInterceptor:IInterceptor  
+    internal class PluginInterceptor:IInterceptor  
     {
+        Guid curId = Guid.NewGuid();
         /// <summary>
         /// 
         /// </summary>
         /// <param name="invocation"></param>
         public void Intercept(IInvocation invocation)
         {
+            Console.WriteLine("AOP id " + curId);
+
             if (!invocation.MethodInvocationTarget.IsAbstract)
             {
                 //替换插件方式

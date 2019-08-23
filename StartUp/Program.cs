@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Plugin;
 using Product;
 using ProxyPluginDemo.Plug;
 
@@ -15,20 +16,20 @@ namespace StartUp
     {
         static PluginService<TestService> product = new PluginService<TestService>();
 
+        static PluginInterfaceService<Test> Test = new PluginInterfaceService<Test>();
+        
         static void Main(string[] args)
         {
             try
             {
-              
-                var file = @"E:\售楼源码\Slxt2.0\src\00_根目录\bin";
-                //file = AppDomain.CurrentDomain.BaseDirectory;
-                var dlls = Directory.GetFiles(file, "*.dll");
-
+                var file = AppDomain.CurrentDomain.BaseDirectory;
+                var dlls = Directory.GetFiles(file, "*pl*.dll");
+          
                 foreach (var dll in dlls)
                 {
                     try
                     {
-                        Assembly.LoadFrom(dll);
+                        System.Reflection.Assembly.LoadFile(dll);
                     }
                     catch (Exception e)
                     {
@@ -36,7 +37,17 @@ namespace StartUp
                     }
                 }
 
-               
+
+                var aa = Test.Instance.T();
+
+                product.Instance.HellowWord();
+            
+                product.Instance.DoSom();
+
+                product.Instance.HellowWord();
+            
+                product.Instance.DoSom();
+
                 product.Instance.HellowWord();
             
                 product.Instance.DoSom();
@@ -48,5 +59,11 @@ namespace StartUp
 
             Console.ReadKey();
         }
+    }
+
+
+    public interface Test
+    {
+        int T();
     }
 }

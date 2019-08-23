@@ -8,10 +8,11 @@
     <OutputType>Library</OutputType>
     <RootNamespace>ProxyPluginDemo</RootNamespace>
     <AssemblyName>ProxyPluginDemo</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -53,8 +54,10 @@
     <Compile Include="Plug\Attrubute\PluginAssemblyAttribute.cs" />
     <Compile Include="Plug\Attrubute\PluginClassAttribute.cs" />
     <Compile Include="Plug\Attrubute\PluginMethodAttribute.cs" />
+    <Compile Include="Plug\InterfaceInterceptor.cs" />
     <Compile Include="Plug\PluginFactory.cs" />
     <Compile Include="Plug\PluginInterceptor.cs" />
+    <Compile Include="Plug\PluginInterfaceService.cs" />
     <Compile Include="Plug\PluginService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
